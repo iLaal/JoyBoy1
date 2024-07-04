@@ -1,26 +1,21 @@
-// Import the action creators 'incremented' and 'decremented' from the 'counterSlice'.
 import meta_seo from "@/constants/meta_seo";
-import { decremented, incremented } from "@/src/store/features/counterSlice";
 
-// Import the 'Head' component from 'next/head' to set document head metadata.
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
-// Import 'useDispatch' and 'useSelector' hooks from 'react-redux' to interact with the Redux store.
-import { useDispatch, useSelector } from "react-redux";
-
-// Define your main application component.
 export default function Home() {
-  // Use 'useSelector' to select the 'counter' state from the Redux store.
-  const { value } = useSelector((state) => state.counter);
-
-  // Use 'useDispatch' to get access to the Redux store's 'dispatch' function.
-  const dispatch = useDispatch();
-
+  const router = useRouter();
+  useEffect(() => {
+    router.replace(
+      "https://vuwik.com/top-5-lifesaving-treatments-and-innovations-hospitals-in-mumbai"
+    );
+  }, []);
   return (
     <>
       {/* Set document head metadata */}
       <Head>
-      <title>{`${meta_seo.pages.home.title}`}</title>
+        <title>{`${meta_seo.pages.home.title}`}</title>
         <meta name="author" content={meta_seo.author} />
         <meta name="description" content={meta_seo.pages.home.desc} />
         <meta name="keywords" content={meta_seo.keywords} />
@@ -37,9 +32,7 @@ export default function Home() {
       </Head>
 
       <main>
-      <h1>
-          {meta_seo.title}
-        </h1>
+        <h1>{meta_seo.title}</h1>
       </main>
     </>
   );
